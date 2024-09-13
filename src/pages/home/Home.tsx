@@ -16,7 +16,7 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center max-w-[980px] gap-6 py-8">
           <img src={Metal} width={260} />
           <h1 className="flex flex-row gap-2 text-[32px] sm:text-[60px] font-extrabold text-[#e1e7ef] text-center sm:leading-[60px] leading-8">
-            <span className=" text-[#46CB18]">BetterMode</span>
+            <span className="text-[#46CB18]">BetterMode</span>
             <Typewriter
               options={{
                 strings: texts,
