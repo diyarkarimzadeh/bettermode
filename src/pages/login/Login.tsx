@@ -9,7 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import Metal from '@/assets/metal3.png';
+import Metal from '@/assets/metal3.webp';
 import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
 import { login } from '@/services/api-helper/login';

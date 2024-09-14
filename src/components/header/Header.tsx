@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import Login from '@/assets/login.png';
+import Login from '@/assets/login.webp';
 
 const Header = () => {
   return (

@@ -1,6 +1,6 @@
 import Button from '@/components/general/button';
 import RootLayout from '@/components/general/layout';
-import Metal from '@/assets/metal2.png';
+import Metal from '@/assets/metal2.webp';
 import Typewriter from 'typewriter-effect';
 
 const Home = () => {
