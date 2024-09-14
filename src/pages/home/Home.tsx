@@ -12,10 +12,10 @@ const Home = () => {
   ];
   return (
     <RootLayout>
-      <main className="flex flex-col items-center justify-between px-6 sm:px-32 py-8 overflow-hidden">
+      <main className="flex flex-col items-center justify-between px-6 sm:px-32">
         <div className="flex flex-col items-center justify-center max-w-[980px] gap-6 py-8">
           <img src={Metal} width={260} />
-          <h1 className="flex flex-row gap-2 text-[32px] sm:text-[60px] font-extrabold text-[#e1e7ef] text-center sm:leading-[60px] leading-8">
+          <h1 className="flex flex-row gap-2 text-[32px] sm:text-[46px] font-extrabold text-[#e1e7ef] text-center sm:leading-[60px] leading-8">
             <span className="text-[#46CB18]">BetterMode</span>
             <Typewriter
               options={{
