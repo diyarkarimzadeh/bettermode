@@ -11,7 +11,7 @@ import Login from '@/assets/login.webp';
 
 const Header = () => {
   return (
-    <div className="flex flex-row items-center justify-between px-16 sticky top-0 z-40 w-full border-b border-[#1D283A] h-16 bg-[#030712]">
+    <div className="flex flex-row items-center justify-between px-4 sm:px-16 sticky top-0 z-40 w-full border-b border-[#1D283A] h-16 bg-[#030712]">
       <div className="flex flex-row items-center h-full gap-12 justify-center sm:justify-start">
         <a href="/">
           <div id="github-icon" className="flex flex-row gap-2 items-center">
