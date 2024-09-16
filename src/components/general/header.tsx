@@ -1,5 +1,5 @@
 import { ToggleRightIcon, KeyRoundIcon } from 'lucide-react';
-import Navbar from '@/components/header/navbar';
+import Navbar from './navbar';
 import { Button as UiButton } from '../ui/button';
 import Button from '../general/button';
 import {

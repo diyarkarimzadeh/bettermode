@@ -1,4 +1,4 @@
-import Header from '@/components/header/header';
+import Header from './header';
 
 export default function RootLayout({
   children,
