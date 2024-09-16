@@ -12,12 +12,39 @@ import { Input } from '@/components/ui/input';
 import Metal from '@/assets/metal3.webp';
 import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
-import { login } from '@/services/api-helper/login';
+import { useMutation } from '@apollo/client';
+import { LOGIN_NETWORK } from '@/services/graph-ql/mutations';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const [loginNetwork, { loading, error }] = useMutation(LOGIN_NETWORK);
+
+  const handleLogin = async () => {
+    try {
+      const response = await loginNetwork({
+        variables: {
+          input: {
+            usernameOrEmail: email,
+            password: password,
+          },
+        },
+      });
+
+      if (response?.data?.loginNetwork) {
+        const { accessToken, refreshToken } = response.data.loginNetwork;
+        console.log('Access Token:', accessToken);
+        console.log('Refresh Token:', refreshToken);
+
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+      }
+    } catch (err) {
+      console.error('Login failed:', err);
+    }
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.id === 'email') {
@@ -27,18 +54,12 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    try {
-      const response = await login(email, password);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
-      <Card className="bg-[#000615] flex flex-col w-1/2 min-w-[320px] z-10">
+      <Card className="bg-[#000615] flex flex-col w-1/3 min-w-[320px] z-10">
         <CardHeader className="text-left">
           <img className="py-4" src={Metal} width={164} />
           <CardTitle>BetterMode Account</CardTitle>
@@ -68,7 +89,7 @@ const Login = () => {
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
           <Button
-            onClick={() => handleSubmit()}
+            onClick={() => handleLogin()}
             className="w-full bg-[#0168F4] font-semibold"
           >
             Login

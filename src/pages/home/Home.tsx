@@ -11,7 +11,7 @@ const Home = () => {
     'But in Shrink mode 🧨',
   ];
   return (
-    <RootLayout>
+    <RootLayout hasBackground>
       <main className="flex flex-col items-center justify-between px-6 sm:px-32">
         <div className="flex flex-col items-center justify-center max-w-[980px] gap-6 py-8">
           <img src={Metal} width={260} />
