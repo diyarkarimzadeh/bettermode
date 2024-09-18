@@ -8,6 +8,7 @@ export const LOAD_POSTS = gql`
     $orderByString: String
     $reverse: Boolean
     $filterBy: [PostListFilterByInput!]
+    $after: String
   ) {
     posts(
       limit: $limit
@@ -16,6 +17,7 @@ export const LOAD_POSTS = gql`
       orderByString: $orderByString
       reverse: $reverse
       filterBy: $filterBy
+      after: $after
     ) {
       totalCount
       pageInfo {
