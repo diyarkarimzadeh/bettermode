@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# BetterMode Echo Project | BetterMode Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BetterMode Echo is designed to provide a dynamic user experience around posts management. It features a Post Gallery where users can browse a paginated list of posts, with the ability to load more posts using Bettermode’s API. Users can click on a post to view Post Details on a dedicated page, with navigation handled by React Router. A Like Feature is incorporated, allowing users to interact with posts by liking them, with real-time updates to the like count. All data fetching and mutations, such as managing posts and likes, are handled via GraphQL integration.
 
-Currently, two official plugins are available:
+## Project Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo of the website at [BetterMode Echo Live Demo](https://bettermodecho.vercel.app/).
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+BetterMode Echo focuses on building a web application using modern front-end technologies to create a smooth and responsive user experience. The tech stack includes Vite as the build tool, React with functional components and hooks for the core framework, TypeScript for static typing, and Tailwind CSS for styling. React Router is used for navigation between different pages of the app, while GraphQL manages data fetching and mutations, making the app highly efficient in handling post data and interactions. Authentication is achieved by retrieving an access token from Bettermode. The project also emphasizes clean, modern UI/UX, ensuring a responsive design that meets best practices for user interfaces.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation and Setup Instructions
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+Ensure you have Node.js and pnpm installed globally on your machine.
+
+### Installation
+
+```bash
+# 1. Clone the repository:
+git clone https://github.com/diyarkarimzadeh/bettermode.git
+
+# 2. Navigate to the project directory:
+cd bettermode
+
+# 3. Install dependencies
+pnpm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Running the Application
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# 1. Start the development server:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+   pnpm run dev
+
+# 2. Visit the application at:
+
+   http://localhost:5173
 ```
+
+## Built With
+
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/en/main)
+- [GraphQl](https://graphql.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
+## Project Structure
+
+```
+
+├── pages # Contains pages to be rendered.
+├── components # Contains components used in each page.
+├── utils # Contains utility and validator functions.
+├── router # Contains React Router config and routes.
+└── services # Contains GraphQl config with queries and mutations.
+
+```
+
+Feel free to explore the project. For any issues, contact me via [email](mailto://diyar1379@gmail.com) or my [Linkedin](https://www.linkedin.com/in/diyarkarimzadeh/) account.

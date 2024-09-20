@@ -1,14 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const LOGIN_NETWORK = gql`
-  mutation loginNetwork($input: LoginNetworkWithPasswordInput!) {
-    loginNetwork(input: $input) {
-      accessToken
-      refreshToken
-    }
-  }
-`;
-
 export const ADD_REACTION = gql`
   mutation AddReaction($input: AddReactionInput!, $postId: ID!) {
     addReaction(input: $input, postId: $postId) {
@@ -28,6 +19,36 @@ export const REMOVE_REACTION = gql`
       postId: $postId
       reaction: $reaction
     ) {
+      status
+    }
+  }
+`;
+
+export const LOGIN_NETWORK = gql`
+  mutation LoginNetworkWithPassword($input: LoginNetworkWithPasswordInput!) {
+    loginNetworkWithPassword(input: $input) {
+      accessToken
+      refreshToken
+      member {
+        email
+        username
+        activeSession {
+          id
+          active
+        }
+        profilePicture {
+          ... on Image {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const LOGOUT_NETWORK = gql`
+  mutation LogoutNetwork($input: LogoutNetworkInput!) {
+    logoutNetwork(input: $input) {
       status
     }
   }

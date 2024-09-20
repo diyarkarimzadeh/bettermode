@@ -12,20 +12,56 @@ import { Input } from '@/components/ui/input';
 import Metal from '@/assets/metal3.webp';
 import { useNavigate } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN_NETWORK } from '@/services/graph-ql/mutations';
+import { LoginData } from './Login.interface';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const [loginNetworkWithPassword, { loading, error }] =
+    useMutation<LoginData>(LOGIN_NETWORK);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.id === 'email') {
       setEmail(e.target.value);
+    } else if (e.target.id === 'password') {
+      setPassword(e.target.value);
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await loginNetworkWithPassword({
+        variables: {
+          input: {
+            usernameOrEmail: email,
+            password: password,
+          },
+        },
+      });
+      console.log('Login successful:', response.data);
+      const { accessToken, member } =
+        response.data?.loginNetworkWithPassword || {};
+      localStorage.setItem('accessToken', accessToken || '');
+      localStorage.setItem('email', member?.email || '');
+      localStorage.setItem('profilePicture', member?.profilePicture.url || '');
+      localStorage.setItem('sessionId', member?.activeSession.id || '');
+      localStorage.setItem(
+        'active',
+        String(member?.activeSession.active) || '',
+      );
+      navigate('/');
+    } catch (e) {
+      console.error('Login error:', e);
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
-      <Card className="bg-[#000615] flex flex-col w-1/3 min-w-[320px] z-10">
+      <Card className="bg-[#000615] flex flex-col w-1/2 min-w-[320px] z-10">
         <CardHeader className="text-left">
           <img className="py-4" src={Metal} width={164} />
           <CardTitle>BetterMode Account</CardTitle>
@@ -43,10 +79,26 @@ const Login = () => {
               type="email"
             />
           </div>
+          <div className="space-y-1 text-left">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              value={password}
+              onChange={handleInputChange}
+              id="password"
+              type="password"
+            />
+            <p className="text-left font-semibold text-red-700 pt-3">
+              {error?.message}
+            </p>
+          </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-          <Button className="w-full bg-[#0168F4] font-semibold">
-            Send OTP code
+          <Button
+            onClick={() => handleLogin()}
+            className="w-full bg-[#0168F4] font-semibold"
+            disabled={loading}
+          >
+            Login
           </Button>
           <Button className="w-full" onClick={() => navigate('/')}>
             Back
