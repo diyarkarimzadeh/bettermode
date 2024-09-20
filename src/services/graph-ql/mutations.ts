@@ -16,3 +16,19 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+
+export const REMOVE_REACTION = gql`
+  mutation RemoveReaction(
+    $participantId: String
+    $postId: ID!
+    $reaction: String!
+  ) {
+    removeReaction(
+      participantId: $participantId
+      postId: $postId
+      reaction: $reaction
+    ) {
+      status
+    }
+  }
+`;

@@ -29,8 +29,18 @@ export const LOAD_POSTS = gql`
         title
         description
         reactionsCount
+        repliesCount
         createdAt
         publishedAt
+        fields {
+          relationEntities {
+            medias {
+              ... on Image {
+                url
+              }
+            }
+          }
+        }
         space {
           name
         }
