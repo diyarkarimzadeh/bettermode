@@ -1,9 +1,12 @@
-import Button from '@/components/general/button';
+import { Button } from '@/components/ui/button';
 import RootLayout from '@/components/general/layout';
 import Metal from '@/assets/metal2.webp';
 import Typewriter from 'typewriter-effect';
+import { ArrowUpRightIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const texts = [
     'But in Echo mode 🚀',
     'But in Lite mode 📦',
@@ -34,7 +37,13 @@ const Home = () => {
             beautifully designed templates, effortlessly customize it to meet
             your specific requirements.
           </p>
-          <Button arrow text="Visit Posts" href="/posts" />
+          <Button
+            onClick={() => navigate('/posts')}
+            className="bg-[#0367F3] border-0 hover:bg-[#0146f4] hover:border-0 font-bold"
+          >
+            Visit Posts
+            <ArrowUpRightIcon />
+          </Button>
         </div>
       </main>
     </RootLayout>

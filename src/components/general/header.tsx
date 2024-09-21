@@ -1,7 +1,7 @@
-import { ToggleRightIcon, KeyRoundIcon } from 'lucide-react';
+import { ToggleRightIcon, KeyRoundIcon, ArrowUpRightIcon } from 'lucide-react';
 import Navbar from './navbar';
 import { Button as UiButton } from '../ui/button';
-import Button from '../general/button';
+import { Button } from '../ui/button';
 import {
   Popover,
   PopoverContent,
@@ -70,7 +70,13 @@ const Header = () => {
             for you!
           </p>
           <div className="w-full mt-4">
-            <Button text="Login" href="/login" arrow />
+            <Button
+              onClick={() => navigate('/login')}
+              className="bg-[#0367F3] border-0 hover:bg-[#0146f4] hover:border-0 font-bold w-full"
+            >
+              Login
+              <ArrowUpRightIcon />
+            </Button>
           </div>
         </div>
       );
@@ -98,7 +104,7 @@ const Header = () => {
         <Popover>
           <PopoverTrigger asChild>
             <UiButton className="bg-[#374151] border-0 hover:bg-slate-800 hover:border-0">
-              <div className="flex flex-row items-center justify-start w-24 md:w-fit h-full gap-2">
+              <div className="flex flex-row items-center justify-start max-w-24 w-fit md:w-fit h-full gap-2">
                 <div className="w-[18px] h-[18px]">
                   <KeyRoundIcon size={18} />
                 </div>
