@@ -6,7 +6,11 @@ const Navbar = () => {
   return (
     <div className="flex flex-row gap-6">
       {siteConfig.mainNav.map((item) => (
-        <div onClick={() => navigate(item.href)} key={item.id}>
+        <div
+          className="cursor-pointer"
+          onClick={() => navigate(item.href)}
+          key={item.id}
+        >
           <p className="font-semibold text-[14px] text-[#7f8ea3]">
             {item.title}
           </p>
