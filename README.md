@@ -47,9 +47,7 @@ pnpm install
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Router](https://reactrouter.com/en/main)
-- [GraphQl](https://graphql.org/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
+- [GraphQL](https://graphql.org/)
 
 ## Project Structure
 

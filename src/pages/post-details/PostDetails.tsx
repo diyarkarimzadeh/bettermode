@@ -19,6 +19,7 @@ const PostDetails = () => {
   const { id } = useParams();
   const [isUserLiked, setIsUserLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const isUserLoggedIn = !!localStorage.getItem('accessToken');
 
   const { data, error, loading, refetch } = useQuery<Data>(GET_POST, {
     variables: { postId: id },
@@ -58,6 +59,20 @@ const PostDetails = () => {
       refetch();
     } catch (err) {
       console.error('Error removing reaction:', err);
+    }
+  };
+
+  const handleLikeAction = () => {
+    if (isUserLoggedIn) {
+      setIsUserLiked((prev) => !prev);
+      setLikeCount((prev) => (isUserLiked ? prev - 1 : prev + 1));
+      if (!isUserLiked) {
+        handleAddReaction();
+      } else {
+        handleRemoveReaction();
+      }
+    } else {
+      navigate('/login');
     }
   };
 
@@ -129,15 +144,7 @@ const PostDetails = () => {
         </div>
         <div className="flex gap-2 items-center justify-center">
           <div
-            onClick={() => {
-              setIsUserLiked((prev) => !prev);
-              setLikeCount((prev) => (isUserLiked ? prev - 1 : prev + 1));
-              if (!isUserLiked) {
-                handleAddReaction();
-              } else {
-                handleRemoveReaction();
-              }
-            }}
+            onClick={handleLikeAction}
             className="p-2 w-[40px] h-[40px] cursor-pointer hover:bg-gray-500 rounded-full transition"
           >
             {isUserLiked ? (

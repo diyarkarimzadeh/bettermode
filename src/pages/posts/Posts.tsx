@@ -79,7 +79,7 @@ const Posts = () => {
                   },
                 });
               }}
-              className="bg-[#0367F3]"
+              className="bg-[#0367F3] border-0 hover:bg-[#0146f4] hover:border-0"
               disabled={btnLoading}
             >
               {btnLoading && (

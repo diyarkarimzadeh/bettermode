@@ -15,6 +15,7 @@ import { ChangeEvent, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_NETWORK } from '@/services/graph-ql/mutations';
 import { LoginData } from './Login.interface';
+import { LoaderIcon } from 'lucide-react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -95,12 +96,16 @@ const Login = () => {
         <CardFooter className="flex flex-col gap-4">
           <Button
             onClick={() => handleLogin()}
-            className="w-full bg-[#0168F4] font-semibold"
+            className="w-full bg-[#0168F4] border-0 hover:bg-[#0146f4] hover:border-0 font-semibold"
             disabled={loading}
           >
+            {loading && <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />}
             Login
           </Button>
-          <Button className="w-full" onClick={() => navigate('/')}>
+          <Button
+            className="w-full border-0 bg-transparent hover:bg-slate-900 hover:border-0"
+            onClick={() => navigate(-1)}
+          >
             Back
           </Button>
         </CardFooter>

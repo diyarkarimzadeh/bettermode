@@ -97,11 +97,14 @@ const Header = () => {
       <div>
         <Popover>
           <PopoverTrigger asChild>
-            {/* <Button text="Login" href="/login" Icon={KeyRoundIcon} /> */}
-            <UiButton className="bg-[#374151]">
-              <div className="flex flex-row items-center justify-center gap-2">
-                <KeyRoundIcon size={18} />
-                {isUserLoggedIn ? localStorage.getItem('email') : 'Login'}
+            <UiButton className="bg-[#374151] border-0 hover:bg-slate-800 hover:border-0">
+              <div className="flex flex-row items-center justify-start w-24 md:w-fit h-full gap-2">
+                <div className="w-[18px] h-[18px]">
+                  <KeyRoundIcon size={18} />
+                </div>
+                <p className=" overflow-hidden truncate">
+                  {isUserLoggedIn ? localStorage.getItem('email') : 'Login'}
+                </p>
               </div>
             </UiButton>
           </PopoverTrigger>

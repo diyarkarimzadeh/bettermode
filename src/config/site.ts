@@ -27,10 +27,5 @@ export const siteConfig: siteConfigInterface = {
       title: 'Posts',
       href: '/posts',
     },
-    {
-      id: 3,
-      title: 'Assignment Task',
-      href: '/search',
-    },
   ],
 };
