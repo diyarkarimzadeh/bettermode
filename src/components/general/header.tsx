@@ -64,7 +64,7 @@ const Header = () => {
     } else {
       return (
         <div className="w-full flex flex-col items-center justify-center">
-          <img src={Login} width={186} />
+          <img className="py-5" src={Login} width={124} />
           <p className=" text-sm text-slate-400 text-center">
             By logging in, you'll discover the most engaging posts curated just
             for you!
@@ -87,12 +87,7 @@ const Header = () => {
       <div className="flex flex-row items-center h-full gap-12 justify-center sm:justify-start">
         <a href="/">
           <div id="github-icon" className="flex flex-row gap-2 items-center">
-            <ToggleRightIcon
-              data-testid="github-icon"
-              id="github-icon"
-              size={32}
-              color="white"
-            />
+            <ToggleRightIcon size={32} color="white" />
             <h1 className="text-white font-bold text-lg">BetterMode Echo</h1>
           </div>
         </a>
@@ -108,7 +103,7 @@ const Header = () => {
                 <div className="w-[18px] h-[18px]">
                   <KeyRoundIcon size={18} />
                 </div>
-                <p className=" overflow-hidden truncate">
+                <p className="overflow-hidden truncate">
                   {isUserLoggedIn ? localStorage.getItem('email') : 'Login'}
                 </p>
               </div>

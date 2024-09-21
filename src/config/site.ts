@@ -1,7 +1,5 @@
 interface siteConfigInterface {
   name: string;
-  title: string;
-  description: string;
   mainNav: MainNavInterface[];
 }
 
@@ -13,9 +11,6 @@ interface MainNavInterface {
 
 export const siteConfig: siteConfigInterface = {
   name: 'BatterMode',
-  title: 'Your desired Github repository is one search away🚀',
-  description:
-    'You can search between millions of repository in Github and have a detail information for each one of them',
   mainNav: [
     {
       id: 1,

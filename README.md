@@ -53,8 +53,10 @@ pnpm install
 
 ```
 
+├── assets # Contains files and images used in the project.
 ├── pages # Contains pages to be rendered.
 ├── components # Contains components used in each page.
+├── config # Contains web app config.
 ├── utils # Contains utility and validator functions.
 ├── router # Contains React Router config and routes.
 └── services # Contains GraphQl config with queries and mutations.

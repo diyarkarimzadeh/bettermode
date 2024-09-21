@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import routeConfig from './routeConfig';
-import GuardedRoute from './GuardedRoute';
+import RouteSection from './Route';
 
 const Router = () => {
   return (
@@ -8,7 +8,7 @@ const Router = () => {
       {routeConfig.map((r) => (
         <Route
           path={r.path}
-          element={<GuardedRoute component={r.component} path={r.path} />}
+          element={<RouteSection component={r.component} path={r.path} />}
           key={r.path}
         />
       ))}

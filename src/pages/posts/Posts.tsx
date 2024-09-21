@@ -4,7 +4,7 @@ import RootLayout from '@/components/general/layout';
 import { Button } from '@/components/ui/button';
 import PostSkeleton from '@/components/post-skeleton';
 import { useEffect, useState } from 'react';
-import { PostData, Node } from '@/interfaces/posts';
+import { PostData, Node } from './Posts.interface';
 import PostCard from '@/components/post-card';
 import { LoaderIcon } from 'lucide-react';
 

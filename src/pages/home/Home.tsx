@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/components/general/layout';
-import Metal from '@/assets/metal2.webp';
+import Metal from '@/assets/metal1.webp';
 import Typewriter from 'typewriter-effect';
 import { ArrowUpRightIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
